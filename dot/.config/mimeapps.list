@@ -1,0 +1,7 @@
+[Default Applications]
+application/x-zerosize=geany.desktop
+text/plain=geany.desktop
+
+[Added Associations]
+application/x-zerosize=geany.desktop;
+text/plain=geany.desktop;
