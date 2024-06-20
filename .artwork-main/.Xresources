@@ -1,0 +1,10 @@
+! xrdb ~/.Xresources; xrdb ~/.Xdefaults; /etc/X11/xorg.conf
+Xft.dpi: 96
+Xft.antialias: rgb
+Xft.rgba: rgb
+Xft.hintstyle: hintslight
+Xft.hinting: true
+Xft.autohint: false
+Xft.lcdfilter: lcddefault
+! 设置默认字体
+Xft.font: "sans-serif-9"
