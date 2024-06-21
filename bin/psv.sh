@@ -21,6 +21,11 @@ log)
     find /var/log/tinylog/$args/ -type f |sort
     tail -n 200 -f /var/log/tinylog/$args/current
     ;;
+restart)
+    sv stop $args
+    sleep 1; sv start $args
+    sleep 1; sv status $args
+    ;;
 start|stop)
     if [ "start" == "$cmd" ]; then
       perpctl up $args
