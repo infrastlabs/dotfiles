@@ -1,3 +1,4 @@
+mkdir -p /usr/share/images/fluxbox
 $RUN \
   # cd /tmp; file=Squared_for_Debian.zip; curl -fSL -k -O https://gitee.com/infrastlabs/docker-headless/raw/dev/_doc/assets/flux/$file; \
   # unzip -d /usr/share/fluxbox/styles/ $file; rm -f /tmp/$file; \
