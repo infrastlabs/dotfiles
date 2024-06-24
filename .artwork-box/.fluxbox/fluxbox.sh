@@ -1,72 +1,3 @@
-$RUN \
-  # cd /tmp; file=Squared_for_Debian.zip; curl -fSL -k -O https://gitee.com/infrastlabs/docker-headless/raw/dev/_doc/assets/flux/$file; \
-  # unzip -d /usr/share/fluxbox/styles/ $file; rm -f /tmp/$file; \
-  # wget -qO /usr/share/images/fluxbox/debian-squared.jpg https://gitee.com/infrastlabs/docker-headless/raw/dev/_doc/assets/bg/bg-debian-liteblue.png; \
-  \
-  # wget --connect-timeout=3 -qO /usr/share/images/fluxbox/ubuntu-light.png https://gitee.com/infrastlabs/docker-headless/raw/dev/_doc/assets/bg/bg-debian-liteblue.png; 
-  # openwrt: wget: unrecognized option: connect-timeout=3
-  wget --connect-timeout=3 -qO /usr/share/images/fluxbox/ubuntu-light.png https://gitee.com/infrastlabs/docker-headless/raw/dev/_doc/assets/bg/pure-blue.jpg; 
-
-# # theme
-##left:
-# MerleyKay
-# Squared_blue
-# Squared_green
-# bora_black
-# carp
-# ubuntu-light
-# zimek_darkblue
-# zimek_green
-echo """
-# Artwiz
-# Bity_fluxbox
-# BlueFlux
-# BlueNight
-# Doty
-# Emerge
-# Flux
-# LemonSpace
-# Makro
-MerleyKay
-# Meta
-# Nyz
-# Operation
-# Outcomes
-# Results
-# Shade
-Squared_blue
-Squared_green
-# Twice
-# arch
-# bloe
-bora_black
-# bora_blue
-# bora_green
-carp
-# green_tea
-# ostrich
-# qnx-photon
-# ubuntu-dark
-ubuntu-light
-# zimek_bisque
-zimek_darkblue
-zimek_green
-""" > /tmp/_flux_themes.txt
-dst=/usr/local/static/fluxbox/share/fluxbox #/styles
-ls $dst/styles |while read one; do
-  match1=$(cat /tmp/_flux_themes.txt |grep -Ev "^#|^$" |grep "$one")
-  test -z "$match1" && rm -rf $dst/styles/$one
-done
-dst=/usr/share/fluxbox; mkdir -p $dst
-\cp -a /usr/local/static/fluxbox/share/fluxbox/* $dst/ #copy
-# origin's clear
-ls $dst/styles |while read one; do
-  match1=$(cat /tmp/_flux_themes.txt |grep -Ev "^#|^$" |grep "$one")
-  test -z "$match1" && rm -rf $dst/styles/$one
-done
-
-
-
 # skel
   # /etc/skel/.config/clipit \
   # /etc/skel/.config/pnmixer \
@@ -137,18 +68,89 @@ session.screen0.toolbar.widthPercent: 99\n\
 # </channel>\n\
 #   " > $file; 
   
-file=/etc/skel/.config/gtk-3.0/settings.ini; \
-echo -e "\
-[Settings]\n\
-gtk-theme-name=Greybird\n\
-gtk-icon-theme-name=Papirus-Bunsen-bluegrey\n\
-gtk-cursor-theme-name=XCursor-Pro-Dark\n\
-gtk-cursor-theme-size=0\n\
-  " > $file; 
+# file=/etc/skel/.config/gtk-3.0/settings.ini; \
+# echo -e "\
+# [Settings]\n\
+# gtk-theme-name=Greybird\n\
+# gtk-icon-theme-name=Papirus-Bunsen-bluegrey\n\
+# gtk-cursor-theme-name=XCursor-Pro-Dark\n\
+# gtk-cursor-theme-size=0\n\
+#   " > $file; 
   
 # .gtkrc-2.0: lxappearance still not preseted.
 # cat $file > /etc/skel/.gtkrc-2.0; \
 
 
 # view
-find /etc/skel |wc; 
+# find /etc/skel |wc; 
+
+# # theme
+##left:
+# MerleyKay
+# Squared_blue
+# Squared_green
+# bora_black
+# carp
+# ubuntu-light
+# zimek_darkblue
+# zimek_green
+echo """
+# Artwiz
+# Bity_fluxbox
+# BlueFlux
+# BlueNight
+# Doty
+# Emerge
+# Flux
+# LemonSpace
+# Makro
+MerleyKay
+# Meta
+# Nyz
+# Operation
+# Outcomes
+# Results
+# Shade
+Squared_blue
+Squared_green
+# Twice
+# arch
+# bloe
+bora_black
+# bora_blue
+# bora_green
+carp
+# green_tea
+# ostrich
+# qnx-photon
+# ubuntu-dark
+ubuntu-light
+# zimek_bisque
+zimek_darkblue
+zimek_green
+""" > /tmp/_flux_themes.txt
+dst=/usr/local/static/fluxbox/share/fluxbox #/styles
+ls $dst/styles |while read one; do
+  match1=$(cat /tmp/_flux_themes.txt |grep -Ev "^#|^$" |grep "$one")
+  test -z "$match1" && rm -rf $dst/styles/$one
+done
+dst=/usr/share/fluxbox; mkdir -p $dst
+\cp -a /usr/local/static/fluxbox/share/fluxbox/* $dst/ #copy
+# origin's clear
+ls $dst/styles |while read one; do
+  match1=$(cat /tmp/_flux_themes.txt |grep -Ev "^#|^$" |grep "$one")
+  test -z "$match1" && rm -rf $dst/styles/$one
+done
+
+# TODO pre下载: https://gitee.com/infrastlabs/docker-headless/tree/dev/_doc/assets
+#  1. bash refresh.sh
+#  2. load assets
+mkdir -p /usr/share/images/fluxbox
+$RUN \
+  # cd /tmp; file=Squared_for_Debian.zip; curl -fSL -k -O https://gitee.com/infrastlabs/docker-headless/raw/dev/_doc/assets/flux/$file; \
+  # unzip -d /usr/share/fluxbox/styles/ $file; rm -f /tmp/$file; \
+  # wget -qO /usr/share/images/fluxbox/debian-squared.jpg https://gitee.com/infrastlabs/docker-headless/raw/dev/_doc/assets/bg/bg-debian-liteblue.png; \
+  \
+  # wget --connect-timeout=3 -qO /usr/share/images/fluxbox/ubuntu-light.png https://gitee.com/infrastlabs/docker-headless/raw/dev/_doc/assets/bg/bg-debian-liteblue.png; 
+  # openwrt: wget: unrecognized option: connect-timeout=3
+  wget --connect-timeout=3 -qO /usr/share/images/fluxbox/ubuntu-light.png https://gitee.com/infrastlabs/docker-headless/raw/dev/_doc/assets/bg/pure-blue.jpg; 
