@@ -1,6 +1,8 @@
 #!/bin/sh
 # TZ, L
 
+
+# todo_ubt_cp: /usr/sbin/locale-gen,update-locale; /etc/default/locale
 function setLocale(){
     # L="zh_CN" ##${L##*.} > zh_CN
     # LANG="zh_CN.UTF-8" #lang_area.charset
