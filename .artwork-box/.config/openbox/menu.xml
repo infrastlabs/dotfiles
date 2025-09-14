@@ -48,41 +48,48 @@
 		</item>
 		<item label="Reconfigure" icon="/_ext/links.desktop/menuIcon/recycle.png">
 			<action name="Reconfigure"/>
+		</item>
+		<item label="St" icon="/_ext/links.desktop/menuIcon/47.png">
+			<action name="Execute">
+				<command>
+                    st
+                </command>
+			</action>
 		</item>		
 		<separator/>
 		<item label="File Manager as root" icon="/_ext/links.desktop/menuIcon/floder9.png">
 			<action name="Execute">
 				<command>
-                        gksudo bl-file-manager
-                    </command>
+					gksudo bl-file-manager
+				</command>
 			</action>
 		</item>
 		<item label="ARandR Screen Layout Editor" icon="/_ext/links.desktop/menuIcon/c1.png">
 			<action name="Execute">
 				<command>
-                            arandr
-                        </command>
+					arandr
+				</command>
 			</action>
 		</item>
 		<item label="Appearance" icon="/_ext/links.desktop/menuIcon/11.png">
 			<action name="Execute">
 				<command>
-                        lxappearance
-                    </command>
+					lxappearance
+				</command>
 			</action>
 		</item>
 		<item label="Wallpaper" icon="/_ext/links.desktop/menuIcon/11.png">
 			<action name="Execute">
 				<command>
-                        nitrogen
-                    </command>
+					nitrogen
+				</command>
 			</action>
 		</item>
 		<item label="GUI Menu Editor" icon="/_ext/links.desktop/menuIcon/38.png">
 			<action name="Execute">
 				<command>
-                            obmenu
-                        </command>
+					obmenu
+				</command>
 			</action>
 		</item>
 		<separator/>

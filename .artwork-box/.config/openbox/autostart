@@ -61,13 +61,16 @@ nitrogen --restore
 
 ## Compton
 ## NOTE: composition must be started before tint2
-bl-compositor --start
+# bl-compositor --start
+xcompmgr &
 
 ## Start the tint2 session (the default tint2 will run if no sessions have been set)
-bl-tint2-session
+# bl-tint2-session
+tint2 &
 
 ## Volume control for systray
-pnmixer &
+# pnmixer &
+pasystray &
 
 ## Start the Conky session (the default conkyrc will run if no sessions have been set)
 bl-conky-session --autostart &
@@ -83,7 +86,16 @@ fi
 
 ## bl-welcome - post-installation script, will not run in a live session and
 ## only runs once. Safe to remove.
-(sleep 10; bl-welcome --firstrun) &
+# (sleep 10; bl-welcome --firstrun) &
 
 ## bl-fortune - have the system come up with a little adage (not yet enabled)
 #(sleep 120; bl-fortune) &
+
+
+# +
+# at-spi-dbus-bus
+xfsettingsd &
+ibus-daemon -d
+fcitx5 -d #alpine_v319
+plank &
+flameshot &

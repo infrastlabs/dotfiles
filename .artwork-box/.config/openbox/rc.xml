@@ -51,7 +51,7 @@
       C: close
       S: shade (roll up/down)
       D: omnipresent (on all desktops).
-  -->
+    -->
     <keepBorder>yes</keepBorder>
     <animateIconify>no</animateIconify>
     <font place="ActiveWindow">
@@ -118,7 +118,7 @@
 
        use obconf if you want to change these without having to log out
        and back in -->
-    <number>1</number>
+    <number>4</number>
     <firstdesk>1</firstdesk>
     <names>
       <!-- set names up here if you want to, like this:
@@ -181,19 +181,22 @@
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings for desktop switching -->
-    <keybind key="C-A-Left">
+    <!-- <keybind key="C-A-Left"> -->
+    <keybind key="A-Left">
       <action name="GoToDesktop">
         <to>left</to>
-        <wrap>no</wrap>
+        <wrap>yes</wrap>
       </action>
     </keybind>
-    <keybind key="C-A-Right">
+    <!-- <keybind key="C-A-Right"> -->
+    <keybind key="A-Right">
       <action name="GoToDesktop">
         <to>right</to>
-        <wrap>no</wrap>
+        <wrap>yes</wrap>
+        <!-- yes/no: ifCycle -->
       </action>
     </keybind>
-    <keybind key="C-A-Up">
+    <!-- <keybind key="C-A-Up">
       <action name="GoToDesktop">
         <to>up</to>
         <wrap>no</wrap>
@@ -204,7 +207,45 @@
         <to>down</to>
         <wrap>no</wrap>
       </action>
+    </keybind> -->
+    <keybind key="A-Up">
+      <action name="ToggleMaximize"/>
     </keybind>
+    <keybind key="A-Down">
+      <!-- minMindow -->
+      <!-- <action name="Iconify"/> -->
+      <!-- 切换窗口:OK -->
+      <action name="NextWindow">
+        <finalactions>
+          <action name="Focus"/>
+          <action name="Raise"/>
+          <action name="Unshade"/>
+        </finalactions>
+      </action>
+      <!-- 切换窗口:OK[反向:向前翻] -->
+      <!-- <action name="PreviousWindow">
+        <finalactions>
+          <action name="Focus"/>
+          <action name="Raise"/>
+          <action name="Unshade"/>
+        </finalactions>
+      </action> -->
+      <!-- 无反应[C-A-TAB] -->
+      <!-- <action name="NextWindow">
+        <panels>yes</panels>
+        <desktop>yes</desktop>
+        <finalactions>
+          <action name="Focus"/>
+          <action name="Raise"/>
+          <action name="Unshade"/>
+        </finalactions>
+      </action> -->
+      <!-- 选:上下左右的窗口 [right/left,up/down] -->
+      <!-- <action name="DirectionalCycleWindows">
+        <direction>right</direction>
+      </action> -->
+    </keybind>
+    <!--  -->
     <keybind key="S-A-Left">
       <action name="SendToDesktop">
         <to>left</to>
@@ -249,7 +290,7 @@
         <to>4</to>
       </action>
     </keybind>
-    <keybind key="W-d">
+    <keybind key="A-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
     <!-- Keybindings for windows -->
@@ -267,7 +308,8 @@
       <action name="FocusToBottom"/>
       <action name="Unfocus"/>
     </keybind>
-    <keybind key="A-space">
+    <!-- <keybind key="A-space"> -->
+    <keybind key="C-space">
       <action name="ShowMenu">
         <menu>client-menu</menu>
       </action>
@@ -334,7 +376,7 @@
       </action>
     </keybind>
     <!-- Keybindings for running applications -->
-    <keybind key="A-F2">
+    <!-- <keybind key="A-F2">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -342,8 +384,8 @@
         </startupnotify>
         <command>gmrun</command>
       </action>
-    </keybind>
-    <keybind key="A-F3">
+    </keybind> -->
+    <!-- <keybind key="A-F3">
       <action name="Execute">
         <startupnotify>
           <enabled>false</enabled>
@@ -351,32 +393,36 @@
         </startupnotify>
         <command>~/.config/dmenu/dmenu-bind.sh</command>
       </action>
-    </keybind>
-    <keybind key="W-f">
+    </keybind> -->
+    <keybind key="A-f">
       <action name="Execute">
         <startupnotify>
           <enabled>false</enabled>
           <name>File Manager</name>
         </startupnotify>
-        <command>bl-file-manager</command>
+        <!-- <command>bl-file-manager</command> -->
+        <command>thunar</command>
       </action>
     </keybind>
-    <keybind key="W-t">
+    <!-- <keybind key="W-t"> -->
+    <keybind key="A-t">
       <action name="Execute">
         <startupnotify>
           <enabled>false</enabled>
           <name>Terminal</name>
         </startupnotify>
-        <command>x-terminal-emulator</command>
+        <!-- <command>x-terminal-emulator</command> -->
+        <command>st</command>
       </action>
     </keybind>
-    <keybind key="W-w">
+    <keybind key="A-w">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
           <name>Web Browser</name>
         </startupnotify>
-        <command>x-www-browser</command>
+        <!-- <command>x-www-browser</command> -->
+        <command>firefox</command>
       </action>
     </keybind>
     <keybind key="W-l">
@@ -388,22 +434,24 @@
         <command>bl-lock</command>
       </action>
     </keybind>
-    <keybind key="W-e">
+    <keybind key="A-e">
       <action name="Execute">
         <startupnotify>
           <enabled>false</enabled>
           <name>Editor</name>
         </startupnotify>
-        <command>bl-text-editor</command>
+        <!-- <command>bl-text-editor</command> -->
+        <command>geany</command>
       </action>
     </keybind>
-    <keybind key="W-m">
+    <keybind key="A-m">
       <action name="Execute">
         <startupnotify>
           <enabled>false</enabled>
           <name>Mediaplayer</name>
         </startupnotify>
-        <command>bl-media-player</command>
+        <!-- <command>bl-media-player</command> -->
+        <command>mpv</command>
       </action>
     </keybind>
     <keybind key="W-h">
@@ -430,8 +478,8 @@
         <command>amixer set -D pulse Master toggle</command>
       </action>
     </keybind>
--->
-    <keybind key="W-x">
+    -->
+    <keybind key="A-x">
       <action name="Execute">
         <startupnotify>
           <enabled>false</enabled>
@@ -440,7 +488,7 @@
         <command>bl-exit</command>
       </action>
     </keybind>
-    <keybind key="W-Escape">
+    <keybind key="A-Escape">
       <action name="Execute">
         <startupnotify>
           <enabled>false</enabled>
@@ -450,16 +498,16 @@
       </action>
     </keybind>
     <!-- Keybindings for menus -->
-    <keybind key="W-Tab">
+    <!-- <keybind key="A-Tab">
       <action name="ShowMenu">
         <menu>client-list-combined-menu</menu>
       </action>
-    </keybind>
-    <keybind key="W-space">
+    </keybind> -->
+    <!-- <keybind key="A-space">
       <action name="ShowMenu">
         <menu>root-menu</menu>
       </action>
-    </keybind>
+    </keybind> -->
     <keybind key="A-C-q">
       <action name="ShowMenu">
         <menu>root-menu</menu>
